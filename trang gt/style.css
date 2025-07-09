@@ -197,54 +197,52 @@ body {
   justify-content: flex-start;
   font-weight: 400;
   background: #fafafa;
-  font-size: 1rem;
-  padding: 22px 28px 18px 28px;
+  font-size: 0.92rem; /* giảm từ 1rem xuống 0.92rem */
+  padding: 14px 16px 10px 16px; /* giảm padding */
   border-radius: 14px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.07);
-  margin-bottom: 18px;
+  margin-bottom: 12px; /* giảm margin */
 }
 
 .content-box .box-title {
   font-weight: bold;
   color: #1976d2;
-  font-size: 1.13rem;
-  margin-bottom: 8px;
+  font-size: 1.05rem; /* giảm nhẹ */
+  margin-bottom: 6px;
   text-align: left;
 }
 
 .content-box .box-desc {
   text-align: justify;
   color: #222;
-  font-size: 1rem;
+  font-size: 0.92rem; /* giảm từ 1rem xuống 0.92rem */
 }
 
 .section2-main {
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  gap: 32px; /* giảm gap */
   width: 100%;
-  height: 60%;
+  height: 44vh; /* giảm chiều cao để nhường chỗ cho ảnh */
+  min-height: 260px;
 }
 
 .section2-left {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 14px; /* giảm gap */
   align-items: flex-end;
-  /* Đổi từ flex-start sang flex-end */
   height: 100%;
 }
 
 .abtec-img {
   position: relative;
-  width: 120px;
-  height: 170px;
-  /* border: 4px solid #000; */
+  width: 90px;
+  height: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 500;
-  /* background: #fafafa; */
 }
 
 .abtec-img img {
@@ -270,33 +268,33 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  justify-content: flex-start;
+  gap: 18px;
+  justify-content: center;
   height: 100%;
 }
 
 .section2-bottom {
-  margin-top: 30px;
+  margin-top: 18px;
   text-align: center;
 }
 
 .section2-title {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   font-weight: 500;
-  font-size: 1.3rem;
-  /* Tăng nhẹ cho tiêu đề */
+  font-size: 1.2rem;
 }
 
 .section2-images {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
-  margin: 0 40px;
+  gap: 18px;
+  margin: 0 10px;
+  flex-wrap: wrap;
 }
 
 .img-box {
-  width: 180px;
-  height: 120px;
+  width: 150px;
+  height: 200px;
   border: 4px solid #000;
   display: flex;
   align-items: center;
@@ -304,29 +302,30 @@ body {
   font-weight: 500;
   background: #fafafa;
   font-size: 0.95rem;
-  /* Cỡ chữ nhỏ hơn cho box ảnh */
 }
 
 /* Responsive */
 @media (max-width: 1100px) {
   .section2-main {
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     height: auto;
+    min-height: unset;
   }
-
   .section2-left {
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
     width: 100%;
     height: auto;
   }
-
   .bbtec-box {
     width: 60vw;
-    height: 200px;
+    height: 120px;
   }
-
+  .abtec-img {
+    width: 60px;
+    height: 60px;
+  }
   .content-box {
     height: auto;
     font-size: 0.97rem;
@@ -337,49 +336,45 @@ body {
 @media (max-width: 800px) {
   .section2-images {
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     margin: 0;
     align-items: center;
   }
-
   .img-box {
     width: 90vw;
-    max-width: 300px;
+    max-width: 220px;
+    height: 120px;
   }
-
   .section2-layout {
     padding: 80px 5px 20px 5px;
   }
-
   .section2-main {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
-
   .section2-left {
     flex-direction: row;
-    gap: 10px;
+    gap: 6px;
   }
-
   .bbtec-box {
     width: 90vw;
-    min-width: 150px;
-    height: 120px;
+    min-width: 100px;
+    height: 70px;
   }
-
   .abtec-img {
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
   }
-
   .content-box {
-    font-size: 0.93rem;
-    padding: 10px 6px 10px 10px;
-    margin-bottom: 12px;
+    font-size: 0.85rem; /* giảm thêm cho mobile */
+    padding: 7px 4px 7px 7px;
+    margin-bottom: 8px;
   }
-
   .content-box .box-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+  .content-box .box-desc {
+    font-size: 0.85rem;
   }
 }
 
