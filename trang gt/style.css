@@ -1,4 +1,3 @@
-/* Reset & layout */
 * {
   margin: 0;
   padding: 0;
@@ -7,16 +6,10 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
-  font-family: sans-serif;
-}
-
-main {
-  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
   overflow: hidden;
 }
 
-/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -28,9 +21,9 @@ main {
 .navbar ul {
   display: flex;
   justify-content: center;
-  list-style: none;
-  padding: 1rem;
   gap: 1.5rem;
+  padding: 1rem;
+  list-style: none;
   flex-wrap: wrap;
 }
 
@@ -38,78 +31,77 @@ main {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
 }
 
 .navbar a:hover {
   color: #00ffff;
 }
 
-/* Hero section */
+/* Hero */
 .hero {
   position: relative;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 100vh;
+  color: white;
   overflow: hidden;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  color: white;
-  padding: 2rem;
-}
-
-.hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-
-.poem {
-  font-style: italic;
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: white;
-  color: #1abc9c;
-  font-weight: bold;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.cta-button:hover {
-  background: #f0f0f0;
-  transform: scale(1.05);
-}
-
-/* Swiper background */
 .swiper {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
 }
 
 .swiper-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.6);
 }
 
-/* Các section tiếp theo */
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero-content h1 { animation-delay: 0.2s; font-size: 2.2rem; }
+.hero-content .poem { animation-delay: 0.5s; margin: 1rem 0; font-style: italic; }
+.hero-content .cta-button {
+  animation-delay: 0.8s;
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: white;
+  color: #1abc9c;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.cta-button:hover {
+  background: #eee;
+  transform: scale(1.05);
+}
+
+/* Sections */
 .page {
   height: 100vh;
   display: flex;
@@ -126,18 +118,172 @@ main {
 #section6 { background: #2ecc71; }
 #section7 { background: #34495e; }
 
-/* Responsive navbar */
+/* Fade up animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .navbar ul {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+  .hero h1 { font-size: 1.6rem; }
+  .poem { font-size: 1rem; }
+  .navbar ul { gap: 1rem; flex-wrap: wrap; }
+}
 
-  .hero h1 {
-    font-size: 1.6rem;
-  }
+/* Section 2 Layout */
+.section2-layout {
+  background: #3498db;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 100vh;
+  padding: 100px 40px 40px 40px; /* padding-top để tránh navbar */
+  box-sizing: border-box;
+}
 
-  .poem {
-    font-size: 1rem;
+.section2-main {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  width: 100%;
+  height: 60%;
+}
+
+.section2-left {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-end; /* Đổi từ flex-start sang flex-end */
+  height: 100%;
+}
+
+.abtec-img {
+  width: 120px;
+  height: 150px;
+  border: 4px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  background: #fafafa;
+}
+
+.bbtec-box {
+  width: 320px;
+  height: 350px;
+  border: 4px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  background: #fafafa;
+  margin-left: 0;
+}
+
+.section2-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.content-box {
+  height: 48%;
+  border: 4px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  background: #fafafa;
+}
+
+.section2-bottom {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.section2-title {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.section2-images {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 0 40px;
+}
+
+.img-box {
+  width: 180px;
+  height: 120px;
+  border: 4px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  background: #fafafa;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .section2-main {
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+  }
+  .section2-left {
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    height: auto;
+  }
+  .bbtec-box {
+    width: 60vw;
+    height: 200px;
+  }
+  .content-box {
+    height: 120px;
+  }
+}
+
+@media (max-width: 800px) {
+  .section2-images {
+    flex-direction: column;
+    gap: 20px;
+    margin: 0;
+    align-items: center;
+  }
+  .img-box {
+    width: 90vw;
+    max-width: 300px;
+  }
+  .section2-layout {
+    padding: 80px 5px 20px 5px;
+  }
+  .section2-main {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .section2-left {
+    flex-direction: row;
+    gap: 10px;
+  }
+  .bbtec-box {
+    width: 60vw;
+    min-width: 150px;
+    height: 120px;
+  }
+  .abtec-img {
+    width: 80px;
+    height: 80px;
   }
 }
