@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page Giá Trị Mùa Hè - BTEC</title>
+
+  <!-- SEO cơ bản -->
+  <meta name="description" content="Giữa sắc màu mùa hè – Tinh hoa hội tụ tại BTEC. Khám phá hành trình học tập truyền cảm hứng." />
+  <meta name="keywords" content="ôn thi, mùa hè, BTEC, giáo dục, landing page" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#section1">Trang 1</a></li>
+      <li><a href="#section2">Trang 2</a></li>
+      <li><a href="#section3">Trang 3</a></li>
+      <li><a href="#section4">Trang 4</a></li>
+      <li><a href="#section5">Trang 5</a></li>
+      <li><a href="#section6">Trang 6</a></li>
+      <li><a href="#section7">Trang 7</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section with Slideshow -->
+  <main>
+    <section id="section1" class="page hero">
+      <!-- Background Slider -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/1.jpg" alt="Slide 1" /></div>
+          <div class="swiper-slide"><img src="images/2.jpg" alt="Slide 2" /></div>
+          <div class="swiper-slide"><img src="images/3.jpg" alt="Slide 3" /></div>
+        </div>
+      </div>
+
+      <!-- Foreground Content -->
+      <div class="hero-content">
+        <h1>✨ Giữa sắc màu mùa hè – Tinh hoa hội tụ tại BTEC</h1>
+        <p class="poem">“Mùa hè gió thổi lao xao – Trang đời mới mở, bước vào mộng xanh...”</p>
+        <a href="#section2" class="cta-button">Khám phá hành trình</a>
+      </div>
+    </section>
+
+    <!-- Các section khác -->
+    <section id="section2" class="page">Trang 2</section>
+    <section id="section3" class="page">Trang 3</section>
+    <section id="section4" class="page">Trang 4</section>
+    <section id="section5" class="page">Trang 5</section>
+    <section id="section6" class="page">Trang 6</section>
+    <section id="section7" class="page">Trang 7</section>
+  </main>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
