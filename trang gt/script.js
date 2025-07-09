@@ -1,3 +1,14 @@
+// Swiper init
+const swiper = new Swiper(".mySwiper", {
+  loop: true,
+  autoplay: {
+    delay: 2000, // Chuyển ảnh nhanh hơn
+    disableOnInteraction: false,
+  },
+  effect: "slide",
+  speed: 700
+});
+
 const sections = document.querySelectorAll(".page");
 let currentIndex = 0;
 let isScrolling = false;
@@ -11,10 +22,10 @@ function scrollToSection(index, instant = false) {
 
   setTimeout(() => {
     isScrolling = false;
-  }, instant ? 0 : 600); // Không delay nếu instant = true
+  }, instant ? 0 : 600);
 }
 
-// Scroll bằng chuột hoặc phím
+// Scroll bằng chuột & phím
 window.addEventListener("wheel", (e) => {
   if (isScrolling) return;
 
@@ -29,18 +40,15 @@ window.addEventListener("keydown", (e) => {
   else if (e.key === "ArrowUp") scrollToSection(currentIndex - 1);
 });
 
-// Click từ navbar hoặc nút CTA (bỏ qua delay)
-document.querySelectorAll(".navbar a, .cta-button").forEach((link, i) => {
+// Click navbar / CTA
+document.querySelectorAll(".navbar a, .cta-button").forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
-
-    // Xác định index tương ứng với section
     const href = link.getAttribute("href");
     const target = document.querySelector(href);
     const index = Array.from(sections).indexOf(target);
-
     if (index !== -1) {
-      scrollToSection(index, true); // instant scroll
+      scrollToSection(index, true);
     }
   });
 });
