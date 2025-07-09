@@ -52,3 +52,47 @@ document.querySelectorAll(".navbar a, .cta-button").forEach((link) => {
     }
   });
 });
+
+// --- Hiệu ứng animator khi lướt tới section 3 ---
+const section3 = document.querySelector('#section3');
+const container3 = section3.querySelector('.container');
+const imgLichsu = section3.querySelector('.img-lichsu');
+const imgTrangnguyen = section3.querySelector('.img-trangnguyen');
+const imgDen = section3.querySelector('.img-den');
+
+// Xóa sẵn class show để hiệu ứng chỉ chạy khi lướt tới
+container3.classList.remove('show');
+imgLichsu.classList.remove('show');
+imgTrangnguyen.classList.remove('show');
+imgDen.classList.remove('show');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      container3.classList.add('show');
+      imgLichsu.classList.add('show');
+      imgTrangnguyen.classList.add('show');
+      imgDen.classList.add('show');
+    }
+  });
+}, { threshold: 0.3 });
+observer.observe(section3);
+
+// --- Hiệu ứng chuyển ảnh khi click vào ảnh trong .img-lichsu ---
+const lichsuImgs = Array.from(imgLichsu.querySelectorAll('.lichsu-img'));
+
+imgLichsu.addEventListener('click', function(e) {
+  // Chỉ xử lý khi click vào ảnh
+  if (!e.target.classList.contains('lichsu-img')) return;
+  // Xoay vị trí các class pos1, pos2, pos3
+  const classes = ['pos1', 'pos2', 'pos3'];
+  // Lấy vị trí hiện tại
+  const current = lichsuImgs.map(img => classes.find(cls => img.classList.contains(cls)));
+  // Xoay mảng sang phải
+  const next = [current[2], current[0], current[1]];
+  // Gán lại class
+  lichsuImgs.forEach((img, i) => {
+    classes.forEach(cls => img.classList.remove(cls));
+    img.classList.add(next[i]);
+  });
+});
