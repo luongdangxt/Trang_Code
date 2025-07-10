@@ -12,14 +12,33 @@ body {
 }
 
 .navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 18px;
+  background: rgb(176,215,225);
+  z-index: 1000;
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  z-index: 1000;
+}
+
+.navbar-logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+}
+
+.navbar-logos img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
 .navbar ul {
+  margin-left: 18px;
+  flex: 1;
   display: flex;
   justify-content: center;
   gap: 1.5rem;
@@ -591,4 +610,373 @@ h1 {
 .container.show~.img-den {
   opacity: 1;
   transform: translateX(0) scale(1);
+}
+
+.footer {
+  background: #23234a;
+  color: #fff;
+  padding: 0;
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 60px 20px 60px;
+  border-bottom: 1px solid #3a3a6a;
+}
+
+.footer-col {
+  flex: 1 1 220px;
+  margin-right: 32px;
+  margin-bottom: 18px;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 16px;
+}
+
+.footer-col.about p {
+  color: #cfd8dc;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.footer-col.quicklinks h4,
+.footer-col.contact h4 {
+  color: #ff9100;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.footer-col.quicklinks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col.quicklinks ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col.quicklinks ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col.quicklinks ul li a:hover {
+  color: #ff9100;
+}
+
+.footer-col.contact p {
+  margin: 0 0 8px 0;
+  color: #cfd8dc;
+}
+
+.footer-col.contact a {
+  color: #ff9100;
+  text-decoration: none;
+}
+
+.footer-social {
+  margin-top: 10px;
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.2s;
+}
+
+.footer-social img:hover {
+  filter: brightness(1) invert(0.5) sepia(1) hue-rotate(-30deg) saturate(5);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px 60px 32px 60px;
+  background: #19193a;
+}
+
+.footer-btec-info {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.footer-logo-btec {
+  width: 110px;
+  margin-bottom: 8px;
+}
+
+.footer-slogan {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.footer-hotline {
+  color: #ff9100;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.footer-hotline-number {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.footer-campus-list {
+  flex: 3 1 600px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: flex-end;
+}
+
+.footer-campus {
+  min-width: 220px;
+  max-width: 260px;
+  margin-bottom: 12px;
+}
+
+.footer-campus-title {
+  color: #ff9100;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.footer-campus div {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 900px) {
+  .footer-top, .footer-bottom {
+    flex-direction: column;
+    padding: 32px 16px 16px 16px;
+  }
+  .footer-campus-list {
+    flex-direction: column;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+  .footer-btec-info {
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-top, .footer-bottom {
+    padding: 18px 4vw 12px 4vw;
+  }
+  .footer-logo, .footer-logo-btec {
+    width: 80px;
+  }
+  .footer-slogan {
+    font-size: 1rem;
+  }
+  .footer-campus {
+    min-width: 120px;
+    max-width: 100vw;
+  }
+}
+
+/* --- Footer Section as Full Page --- */
+.footer.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  padding-top: 70px; /* Đảm bảo không bị navbar che, chỉnh lại nếu navbar cao khác */
+  background: #23234a;
+}
+
+.footer-main {
+  flex: 1 1 auto;
+  /* Có thể thêm background khác nếu muốn */
+}
+
+.footer-bottom-custom {
+  background: #23234a;
+  color: #fff;
+  padding: 40px 60px 40px 60px;
+}
+
+.footer-bottom-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.footer-bottom-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.footer-logo-large {
+  width: 180px;
+  margin-bottom: 10px;
+}
+
+.footer-slogan-large {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.footer-hotline-large {
+  color: #ff9100;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.footer-hotline-number-large {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-social-large {
+  margin-top: 10px;
+  display: flex;
+  gap: 18px;
+}
+
+.footer-social-large img {
+  width: 36px;
+  height: 36px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.2s;
+}
+
+.footer-social-large img:hover {
+  filter: brightness(1) invert(0.5) sepia(1) hue-rotate(-30deg) saturate(5);
+}
+
+.footer-bottom-right {
+  flex: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: flex-end;
+}
+
+.footer-campus {
+  min-width: 220px;
+  max-width: 260px;
+  margin-bottom: 12px;
+}
+
+.footer-campus-title {
+  color: #ff9100;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.footer-campus div {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 900px) {
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .footer-bottom-left {
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .footer-bottom-right {
+    flex-direction: column;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer.page {
+    padding-top: 50px;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+  .footer-main {
+    padding: 0 4px;
+  }
+  .footer-bottom-custom {
+    padding: 8px 2vw 6px 2vw;
+  }
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .footer-bottom-left {
+    align-items: flex-start;
+    width: 100%;
+    gap: 6px;
+  }
+  .footer-logo-large {
+    width: 60px;
+    margin-bottom: 4px;
+  }
+  .footer-slogan-large {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+  .footer-hotline-large {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+  .footer-hotline-number-large {
+    font-size: 1rem;
+  }
+  .footer-social-large {
+    gap: 6px;
+  }
+  .footer-social-large img {
+    width: 22px;
+    height: 22px;
+  }
+  .footer-bottom-right {
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .footer-campus {
+    min-width: unset;
+    max-width: 100vw;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+  .footer-campus-title {
+    font-size: 0.85rem;
+  }
+  .footer-campus div {
+    font-size: 0.85rem;
+  }
 }
