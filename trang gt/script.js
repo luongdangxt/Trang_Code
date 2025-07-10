@@ -78,6 +78,22 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 observer.observe(section3);
 
+// --- Hiệu ứng animator khi lướt tới section 2 ---
+const section2 = document.querySelector('#section2');
+const animators2 = section2.querySelectorAll('.animator');
+// Xóa sẵn class show để hiệu ứng chỉ chạy khi lướt tới
+animators2.forEach(el => el.classList.remove('show'));
+const observer2 = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animators2.forEach((el, i) => {
+        setTimeout(() => el.classList.add('show'), i * 120); // hiệu ứng lần lượt
+      });
+    }
+  });
+}, { threshold: 0.3 });
+observer2.observe(section2);
+
 // --- Hiệu ứng chuyển ảnh khi click vào ảnh trong .img-lichsu ---
 const lichsuImgs = Array.from(imgLichsu.querySelectorAll('.lichsu-img'));
 
