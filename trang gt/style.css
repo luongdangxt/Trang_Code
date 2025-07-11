@@ -895,12 +895,6 @@ h1 {
   gap: 18px;
 }
 
-.footer-social-large img {
-  width: 36px;
-  height: 36px;
-  filter: brightness(0) invert(1);
-  transition: filter 0.2s;
-}
 
 .footer-social-large img:hover {
   filter: brightness(1) invert(0.5) sepia(1) hue-rotate(-30deg) saturate(5);
@@ -1214,9 +1208,8 @@ h1 {
 }
 
 .footer-social-large img {
-  width: 28px;
-  height: 28px;
-  filter: brightness(0) invert(1);
+  width: 30px;
+  height: 30px;
   transition: filter 0.2s;
 }
 
