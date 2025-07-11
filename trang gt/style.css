@@ -703,16 +703,6 @@ h1 {
   color: #ff9100;
 }
 
-.footer-col.contact p {
-  margin: 0 0 8px 0;
-  color: #cfd8dc;
-}
-
-.footer-col.contact a {
-  color: #ff9100;
-  text-decoration: none;
-}
-
 .footer-social {
   margin-top: 10px;
   display: flex;
@@ -837,6 +827,7 @@ h1 {
   position: relative;
   padding-top: 70px; /* Đảm bảo không bị navbar che, chỉnh lại nếu navbar cao khác */
   background: #23234a;
+  overflow-y: auto;
 }
 
 .footer-main {
@@ -869,6 +860,11 @@ h1 {
 .footer-logo-large {
   width: 180px;
   margin-bottom: 10px;
+}
+.footer-main {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .footer-slogan-large {
@@ -954,6 +950,7 @@ h1 {
     min-height: 100vh;
     max-height: 100vh;
     overflow-y: auto;
+    flex-shrink: 0;
   }
   .footer-main {
     padding: 0 4px;
@@ -1022,4 +1019,160 @@ h1 {
   opacity: 1;
   transform: translateY(0);
 
+}
+
+/* Footer layout mới - cải thiện responsive */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 40px 60px 20px 60px;
+  background: #23234a;
+}
+
+.footer-col {
+  flex: 1 1 120px;
+  min-width: 100px;
+  margin-bottom: 18px;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 12px;
+}
+
+.footer-slogan-large {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.footer-hotline-large {
+  color: #ff9100;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.footer-hotline-number-large {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.footer-social-large {
+  margin-top: 10px;
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social-large img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.2s;
+}
+
+.footer-social-large img:hover {
+  filter: brightness(1) invert(0.5) sepia(1) hue-rotate(-30deg) saturate(5);
+}
+
+.footer-col.quicklinks h4 {
+  color: #ff9100;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.footer-col.quicklinks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col.quicklinks ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col.quicklinks ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col.quicklinks ul li a:hover {
+  color: #ff9100;
+}
+
+.campus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-campus-title {
+  color: #ff9100;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.footer-campus div {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: #bbb;
+  font-size: 0.95rem;
+  padding: 16px 0 8px 0;
+  background: #19193a;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    padding: 32px 16px 16px 16px;
+    gap: 18px;
+  }
+  .footer-col {
+    min-width: unset;
+  }
+}
+@media (max-width: 700px) {
+  .footer-content {
+    flex-direction: column;
+    padding: 24px 8px 12px 8px;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .footer-col {
+    min-width: unset;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .footer-content {
+    padding: 14px 2vw 8px 2vw;
+    gap: 6px;
+  }
+  .footer-logo {
+    width: 70px;
+  }
+  .footer-slogan-large {
+    font-size: 0.95rem;
+  }
+  .footer-campus-title {
+    font-size: 0.95rem;
+  }
+  .footer-campus div {
+    font-size: 0.9rem;
+  }
+  .footer-hotline-large {
+    font-size: 0.9rem;
+  }
+  .footer-hotline-number-large {
+    font-size: 1rem;
+  }
 }
