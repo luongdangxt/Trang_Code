@@ -118,7 +118,7 @@ body {
 .main-text {
     width: 90%;
     margin-left: 50px;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.7;
     margin-bottom: 25px;
     color: #333;
@@ -127,14 +127,38 @@ body {
 }
 
 .secondary-text {
-    width: 90%; 
+    width: 90%;
     margin-left: 50px;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.7;
-    color: #444;
+    margin-bottom: 25px;
+    color: #333;
     text-align: justify;
+    font-weight: 500;
 }
 
+
+.third-text {
+    width: 90%;
+    margin-left: 50px;
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: justify;
+    font-weight: 500;
+}
+
+.ford-text{
+    width: 90%;
+    margin-left: 50px;
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: justify;
+    font-weight: 500;
+}
 /* Image Section */
 /* .image-section {
     position: relative;
