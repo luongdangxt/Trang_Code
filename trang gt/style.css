@@ -1459,7 +1459,7 @@ body {
 
 /* Main Content */
 .main-content {
-    top: 75px;
+    top: 0px;
     /* Center lại, không dịch sang phải để tránh khoảng trắng */
     display: grid;
     grid-template-columns: 3fr 3fr;
