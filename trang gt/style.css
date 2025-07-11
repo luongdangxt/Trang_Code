@@ -1167,6 +1167,8 @@ h1 {
   .slide-img-vertical {
     width: 80px;
     height: 80px;
+  }
+}
 /* Footer layout mới - cải thiện responsive */
 .footer-content {
   display: flex;
