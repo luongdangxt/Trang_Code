@@ -112,3 +112,37 @@ imgLichsu.addEventListener('click', function(e) {
     img.classList.add(next[i]);
   });
 });
+
+const section2Swiper = new Swiper('.section2Swiper', {
+  loop: true,
+  navigation: {
+    nextEl: '.section2-right .swiper-button-next',
+    prevEl: '.section2-right .swiper-button-prev',
+  },
+  pagination: {
+    el: '.section2-right .swiper-pagination',
+    clickable: true,
+  },
+  effect: "slide",
+  speed: 600,
+  autoplay: {
+    delay: 10000, // 2 giây
+    disableOnInteraction: false,
+  },
+  slidesPerView: 2, // Hiển thị 2 slide trên màn hình lớn
+  spaceBetween: 32, // Khoảng cách giữa các slide
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 12,
+    },
+    900: {
+      slidesPerView: 2,
+      spaceBetween: 32,
+    },
+    1300: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    }
+  }
+});
