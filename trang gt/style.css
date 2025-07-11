@@ -153,9 +153,7 @@ body {
   background: #9b59b6;
 }
 
-#section4 {
-  background: #e67e22;
-}
+
 
 #section5 {
   background: #e74c3c;
@@ -1317,3 +1315,609 @@ h1 {
     font-size: 1rem;
   }
 }
+
+
+
+
+
+
+/* section 4 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Times New Roman', serif;
+    /* Nền hình ảnh */
+    background: url('images/back.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 30px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.btec-logo {
+    height: 35px;
+}
+
+.pearson-logo {
+    height: 30px;
+}
+
+/* Main Content */
+.main-content {
+    top: 75px;
+    /* Center lại, không dịch sang phải để tránh khoảng trắng */
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    gap: 32px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+    min-height: 700px;
+    background-color: #ffffff;
+    padding: 80px 60px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 0px,
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 32px
+    );
+    perspective: 2000px;
+}
+
+/* Đường gáy vở ở giữa */
+.main-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Loại bỏ nền giấy riêng ở hai khối con để dùng nền chung */
+.text-section,
+.image-section {
+    background: none;
+}
+
+/* .text-section {
+    position: relative;
+    padding: 100px 20px;
+    background-color: #ffffff;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 0px,
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 32px
+    );
+} */
+
+/* .text-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.3);
+} */
+
+.main-text {
+    width: 90%;
+    margin-left: 50px;
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: justify;
+    font-weight: 500;
+}
+
+.secondary-text {
+    width: 90%;
+    margin-left: 50px;
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: justify;
+    font-weight: 500;
+}
+
+
+.third-text {
+    width: 90%;
+    margin-left: 50px;
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: justify;
+    font-weight: 500;
+}
+
+.ford-text{
+    width: 90%;
+    margin-left: 50px;
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: justify;
+    font-weight: 500;
+}
+/* Image Section */
+/* .image-section {
+    position: relative;
+    padding: 100px 20px;
+    background-color: #ffffff;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 0px,
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 32px
+    );
+} */
+
+.student-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.main-image {
+    width: 87%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.top-image {
+    height: 300px;
+    margin-left: 50px;
+}
+
+.bottom-image {
+    height: 300px;
+    margin-left: 50px;
+}
+
+/* Decorative Elements */
+.decorative-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.decor,
+.page-tape {
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.6s ease, transform 0.6s ease; /* mượt hơn khi ẩn/hiện */
+}
+
+/* Top decorations */
+.ruler.top-left {
+    top: 70px;
+    left: 0px;
+    width: 180px;
+    height: auto;
+    transform: rotate(0deg);
+}
+
+.magnifying-glass.top-center {
+    top: 70px;
+    left: 45%;
+    transform: translateX(-50%) rotate(0deg);
+    width: 120px;
+    height: auto;
+}
+
+
+.tape.top-center-left {
+    top: 160px;
+    right: 600px;
+    transform: translateX(-50%) rotate(0deg);
+    width: 130px;
+    height: auto;
+}
+
+.tape_1.top-right-corner-left {
+    top: 780px;
+    right: 580px;
+    transform: translateX(-50%) rotate(0deg);
+    width: 130px;
+    height: auto;
+}
+
+.tape_2.top-right-corner-right {
+    top: 460px;
+    right: 0px;
+    transform: translateX(-50%) rotate(0deg);
+    width: 130px;
+    height: auto;
+}
+
+.earth.top-right {  
+    top: 50px;
+    right: 100px;
+    width: 120px;
+    height: auto;
+    transform: rotate(0deg);
+}
+
+.Delonix_regia.top-right-corner {
+    top: 60px;
+    right: -150px;
+    width: 300px;
+    height: auto;
+    transform: rotate(0deg);
+}
+
+
+
+.de.top-right-corner {
+    top: 60px;
+    right: 20px;
+    width: 120px;
+    height: auto;
+    transform: rotate(-15deg);
+}
+
+/* Left side decorations */
+.student-male.left-side {
+    left: -150px;
+    top: 78%;
+    transform: translateY(-50%);
+    width: 280px;
+    height: auto;
+}
+
+.pen.left-center {
+    left: 40px;
+    top: 65%;
+    width: 80px;
+    height: auto;
+    transform: rotate(35deg);
+}
+
+.compass.left-center {
+    left: -150px;
+    top: 31%;
+    width: 370px;
+    height: auto;
+    transform: rotate(0deg);
+}
+
+
+/* Bottom decorations */
+.paint-set.bottom-left {
+    bottom: 20px;
+    left: 150px;
+    width: 180px;
+    height: auto;
+    transform: rotate(-8deg);
+}
+
+.flamboyant-small.bottom-center {
+    bottom: 150px;
+    left: 26%;
+    transform: translateX(-50%) rotate(25deg);
+    width: 150px;
+    height: auto;
+}
+
+.pen-bottom.bottom-center-right {
+    bottom: 70px;
+    right: 50%;
+    width: 150px;
+    height: auto;
+    transform: rotate(0deg);
+}
+
+/* Right side decorations */
+.student-female.right-side {
+    right: -150px;
+    top: 78%;
+    transform: translateY(-50%);
+    width: 220px;
+    height: auto;
+}
+
+.bag.right-bottom {
+    right: 40px;
+    bottom: 30px;
+    width: 150px;
+    height: auto;
+    transform: rotate(12deg);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .text-section {
+        order: 2;
+    }
+    
+    .image-section {
+        order: 1;
+    }
+    
+    .student-images {
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    .main-image {
+        height: 250px;
+    }
+    
+    /* Adjust decorative elements for mobile */
+    .decor {
+        transform: scale(0.7);
+    }
+    
+    .student-male.left-side,
+    .student-female.right-side {
+        display: none;
+    }
+    
+    .main-content::before {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .main-text,
+    .secondary-text {
+        font-size: 14px;
+    }
+    
+    .logo {
+        height: 40px;
+    }
+    
+    .btec-logo {
+        height: 35px;
+    }
+    
+    .pearson-logo {
+        height: 32px;
+    }
+    
+    .student-images {
+        flex-direction: column;
+    }
+    
+    .main-image {
+        height: 180px;
+    }
+    
+    .decor {
+        transform: scale(0.5);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-text,
+    .secondary-text {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    
+    .main-image {
+        height: 150px;
+    }
+    
+    .decorative-elements {
+        display: none;
+    }
+}
+
+/* Page flip effect */
+.page-right {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    transform-origin: left center;
+    width: 100%;
+    height: 100%;
+    min-height: 650px;
+}
+
+.page-right.flipped {
+    transform: rotateY(-180deg);
+}
+
+.page-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.page-face.back {
+    transform: rotateY(180deg);
+}
+
+.new-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 95%;
+    height: 100%;
+    padding: 40px;
+    /* Nền giấy có dòng kẻ giống quyển vở */
+    background-color: #ffffff;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 0px,
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 32px
+    );
+    /* căn chỉnh vị trí để khớp với quyển vở; điều chỉnh nếu cần */
+    background-position-y: -8px; /* tinh chỉnh nếu thấy lệch dòng */
+    gap: 32px;
+}
+
+.new-text {
+    flex: 1 1 55%;
+    font-size: 20px;
+    line-height: 1.7;
+    color: #333;
+    text-align: justify;
+    font-weight: 500;
+}
+
+.new-image {
+    flex: 0 0 40%;
+    max-width: 40%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.page-right .student-images {
+    width: 100%;
+    height: 100%;
+    gap: 25px;
+}
+
+.page-right .main-image {
+    width: 100%;
+    margin-left: 0;
+}
+
+/* Tape gắn trên trang lật */
+.page-tape {
+    position: absolute;
+    width: 120px;
+    height: auto;
+    pointer-events: none;
+}
+.front-tape {
+    top: 60px;
+    right: 60px;
+    transform: rotate(8deg);
+}
+.back-tape {
+    top: 60px;
+    right: 60px;
+    transform: rotate(-6deg);
+}
+
+/* Ẩn các decor cũ khi trang đã lật */
+.container.page-flipped .decor.flamboyant-small,
+.container.page-flipped .decor.tape,
+.container.page-flipped .decor.tape_1,
+.container.page-flipped .decor.tape_2 {
+    opacity: 0;
+    transform: translateY(20px) scale(0.85); /* trượt nhẹ & thu nhỏ dần */
+}
+
+.front-extra-image {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    width: 220px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Khi trang lật, ẩn ảnh mặt trước */
+.page-right.flipped .front-extra-image {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.9);
+}
+
+/* Page flip effect */
+/* ----- Page Stack ----- */
+.page-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 650px; /* đồng bộ chiều cao với trang */
+}
+
+.page-stack .page-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.page-stack .page-right.flipped {
+    z-index: 0;
+}
+
+.page-stack .page-right.first-page { z-index: 2; }
+.page-stack .page-right.second-page { z-index: 1; }
+
+/* ----- Paper background cho trang đầu tiên (mặt trước) ----- */
+.page-right.first-page .page-face.front {
+    /* Giấy trắng với dòng kẻ nhẹ */
+    background-color: #ffffff;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 0px,
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 32px
+    );
+    background-position-y: -8px; /* căn chỉnh dòng */
+    padding: 40px; /* khoảng cách viền trang */
+} 
