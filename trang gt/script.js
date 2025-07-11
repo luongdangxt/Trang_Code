@@ -53,6 +53,23 @@ document.querySelectorAll(".navbar a, .cta-button").forEach((link) => {
   });
 });
 
+// Navbar mobile toggle
+const navbarToggle = document.querySelector('.navbar-toggle');
+const navbarMenu = document.querySelector('.navbar ul');
+if (navbarToggle && navbarMenu) {
+  navbarToggle.addEventListener('click', () => {
+    navbarMenu.classList.toggle('open');
+    navbarToggle.classList.toggle('active');
+  });
+  // Đóng menu khi bấm vào link
+  navbarMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navbarMenu.classList.remove('open');
+      navbarToggle.classList.remove('active');
+    });
+  });
+}
+
 // --- Hiệu ứng animator khi lướt tới section 3 ---
 const section3 = document.querySelector('#section3');
 const container3 = section3.querySelector('.container');
