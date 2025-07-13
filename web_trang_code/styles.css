@@ -1,3 +1,4 @@
+/* section 4 */
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +20,7 @@ body {
     width: 100%;
     margin: 0 auto;
     min-height: 100vh;
-    padding: 20px;
+    padding: 100px 20px 20px 20px;
 }
 
 /* Header */
@@ -51,7 +52,7 @@ body {
 
 /* Main Content */
 .main-content {
-    top: 25px;
+    top: 0px;
     /* Center lại, không dịch sang phải để tránh khoảng trắng */
     display: grid;
     grid-template-columns: 3fr 3fr;
@@ -213,7 +214,7 @@ body {
 .page-tape {
     position: absolute;
     opacity: 1;
-    transition: opacity 0.6s ease, transform 0.6s ease; /* mượt hơn khi ẩn/hiện */
+    /* transition: opacity 0.6s ease, transform 0.6s ease; mượt hơn khi ẩn/hiện */
 }
 
 /* Top decorations */
@@ -353,92 +354,219 @@ body {
 }
 
 /* Responsive Design */
+/* ======= Màn hình Tablet (chiều rộng tối đa 1024px) ======= */
+/* ======= Màn hình Tablet (chiều rộng tối đa 1024px) - ĐÃ CẬP NHẬT ======= */
 @media (max-width: 1024px) {
     .main-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột duy nhất */
         gap: 30px;
+        padding: 60px 20px 40px 20px; /* Tăng padding trên để tạo không gian cho gáy vở */
+        position: relative; /* Đảm bảo ::before được định vị đúng */
     }
     
+    /* Điều chỉnh lại gáy vở thành dạng gáy ngang ở trên */
+    .main-content::before {
+        display: block; /* Hiện lại gáy vở */
+        content: "";
+        position: absolute;
+        top: 25px; /* Đặt vị trí cho gáy vở ngang */
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: rgba(0, 0, 0, 0.08);
+        transform: none; /* Bỏ transform cũ */
+    }
+
+    .page-stack{
+        height: 50%;
+    }
+
+
     .text-section {
-        order: 2;
+        order: 2; /* Đưa phần chữ xuống dưới */
     }
     
-    .image-section {
-        order: 1;
+    .page-stack {
+        order: 1; /* Đưa phần hình ảnh lên trên */
     }
     
+    /* --- YÊU CẦU 1: Chuyển ảnh về 2 hàng --- */
     .student-images {
-        flex-direction: row;
-        gap: 15px;
+        flex-direction: column; /* Chuyển lại thành cột để ảnh xếp thành 2 hàng */
+        gap: 20px; /* Tăng khoảng cách cho hợp lý */
     }
     
     .main-image {
         height: 250px;
+        width: 100%; /* Đảm bảo ảnh chiếm hết chiều rộng của cột */
     }
     
-    /* Adjust decorative elements for mobile */
-    .decor {
-        transform: scale(0.7);
-    }
-    
+    /* Ẩn bớt các chi tiết trang trí không cần thiết */
     .student-male.left-side,
-    .student-female.right-side {
+    .student-female.right-side,
+    .pen.left-center,
+    .bag.right-bottom,
+    .paint-set.bottom-left,
+    .pen-bottom.bottom-center-right,
+    .tape.top-center-left,
+    .tape_1.top-right-corner-left,
+    .tape_2.top-right-corner-right,
+    .compass.left-center {
         display: none;
     }
+
+/* Ẩn phần tử .main-text rỗng */
+.main-text:empty {
+    display: none;
+}
+
+/* Hoặc ẩn tất cả .main-text khi trang lật, chỉ hiện ::after */
+
+.container.page-flipped .secondary-text {
+    visibility: hidden;
+    position: relative;
+}
+
+.container.page-flipped .third-text {
+    visibility: hidden;
+    position: relative;
+}
+.container.page-flipped .ford-text {
+    visibility: hidden;
+    position: relative;
+}
+
+
+
+
+.container.page-flipped .main-text {
+    visibility: hidden;
+    position: relative;
+}
+.container.page-flipped .main-text::after {
+    content: "Hành trình tri thức vẫn không dừng lại ở đó. Khi trang sách mới mở ra, những khát vọng của tuổi trẻ tiếp tục được chắp cánh bay cao. Mỗi bài học là một bước tiến, mỗi thử thách là cơ hội để bứt phá giới hạn của chính mình.";
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+
+    .earth.top-right{
+        width: 20%;
+    }
+    .magnifying-glass.top-center{
+        width: 15%;
+    }
+    .ruler.top-left{
+        width: 20%;
+    }
+
+    .flamboyant-small.bottom-center{
+        top: 50%;
+        left: 40%;
+    }
     
-    .main-content::before {
-        display: none;
+    .decor {
+        transform: scale(0.4);
+    }
+
+    /* --- YÊU CẦU 2: Hiệu ứng lật trang dọc --- */
+    .page-right {
+        /* Đổi gốc xoay lên cạnh trên để lật dọc */
+        transform-origin: center top; 
+    }
+
+    .page-right.flipped {
+        /* Thay đổi hướng lật từ ngang (rotateY) sang dọc (rotateX) */
+        transform: rotateX(180deg);
+    }
+    
+    .page-face.back {
+        /* Điều chỉnh lại mặt sau cho khớp với lật dọc */
+        transform: rotateX(-180deg);
     }
 }
 
+/* ======= Màn hình điện thoại (chiều rộng tối đa 768px) ======= */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px 15px; /* Giảm padding của container */
     }
     
     .main-text,
-    .secondary-text {
-        font-size: 14px;
+    .secondary-text,
+    .third-text,
+    .ford-text,
+    .new-text {
+        font-size: 16px; /* Tăng kích thước font chữ cho dễ đọc hơn */
+        line-height: 1.6;
+        width: 100%; /* Sử dụng toàn bộ chiều rộng */
+        margin-left: 0;
     }
-    
-    .logo {
-        height: 40px;
+
+    .logo-section {
+        flex-direction: column; /* Xếp chồng logo lên nhau */
+        align-items: flex-start;
+        gap: 10px;
     }
-    
-    .btec-logo {
-        height: 35px;
-    }
-    
-    .pearson-logo {
-        height: 32px;
-    }
+
+    .logo { height: 35px; }
+    .btec-logo { height: 30px; }
+    .pearson-logo { height: 28px; }
     
     .student-images {
-        flex-direction: column;
+        flex-direction: column; /* Hiển thị ảnh theo cột */
+    }
+    
+    .main-image {
+        height: 200px;
+    }
+    
+    .new-content {
+        flex-direction: column; /* Nội dung trang lật cũng theo cột */
+        padding: 20px;
+    }
+
+    .new-image {
+        max-width: 100%; /* Ảnh trong trang lật chiếm toàn bộ chiều rộng */
+    }
+    
+    /* Thu nhỏ và điều chỉnh lại vị trí các vật trang trí */
+    .decor {
+        transform: scale(0.4);
+    }
+
+    .ruler.top-left { top: 20px; left: -10px; }
+    .earth.top-right { top: 20px; right: -5px; }
+    .Delonix_regia.top-right-corner { display: none; } /* Ẩn cành phượng lớn */
+    .paint-set.bottom-left { left: 10px; bottom: 10px; }
+    .bag.right-bottom { right: 10px; bottom: 10px; }
+}
+
+/* ======= Màn hình điện thoại nhỏ (chiều rộng tối đa 480px) ======= */
+@media (max-width: 480px) {
+    .main-text,
+    .secondary-text,
+    .third-text,
+    .ford-text,
+    .new-text {
+        font-size: 14px; /* Giảm nhẹ font chữ cho màn hình rất nhỏ */
+        line-height: 1.5;
     }
     
     .main-image {
         height: 180px;
     }
     
-    .decor {
-        transform: scale(0.5);
-    }
-}
-
-@media (max-width: 480px) {
-    .main-text,
-    .secondary-text {
-        font-size: 13px;
-        line-height: 1.5;
-    }
-    
-    .main-image {
-        height: 150px;
-    }
-    
+    /* Ẩn tất cả các yếu tố trang trí để tập trung vào nội dung */
     .decorative-elements {
         display: none;
+    }
+
+    .main-content {
+        padding: 20px 15px;
     }
 }
 
@@ -491,7 +619,7 @@ body {
 
 .new-text {
     flex: 1 1 55%;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.7;
     color: #333;
     text-align: justify;
@@ -536,7 +664,6 @@ body {
 }
 
 /* Ẩn các decor cũ khi trang đã lật */
-.container.page-flipped .decor.flamboyant-small,
 .container.page-flipped .decor.tape,
 .container.page-flipped .decor.tape_1,
 .container.page-flipped .decor.tape_2 {
@@ -597,3 +724,33 @@ body {
     background-position-y: -8px; /* căn chỉnh dòng */
     padding: 40px; /* khoảng cách viền trang */
 } 
+
+
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px); /* Điều chỉnh độ cao bay lơ lửng tại đây */
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+
+/* Áp dụng animation cho tất cả các decor trừ học sinh */
+.decor:not(.student-male):not(.student-female) {
+    animation: floatAnimation 6s ease-in-out infinite;
+}
+
+/* Gán thời gian delay ngẫu nhiên để các vật không bay cùng lúc */
+.decor.ruler { animation-delay: -1s; }
+.decor.magnifying-glass { animation-delay: -2s; }
+.decor.earth { animation-delay: -3s; }
+.decor.paint-set { animation-delay: -4s; }
+.decor.flamboyant-small { animation-delay: -5s; }
+.decor.bag { animation-delay: -0.5s; }
+.decor.pen-bottom { animation-delay: -2.5s; }
