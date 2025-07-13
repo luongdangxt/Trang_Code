@@ -2758,3 +2758,56 @@ body {
 .decor.flamboyant-small { animation-delay: -5s; }
 .decor.bag { animation-delay: -0.5s; }
 .decor.pen-bottom { animation-delay: -2.5s; }
+
+/* Ẩn section3 và section4 trên mobile */
+@media (max-width: 768px) {
+  #section3,
+  #section4 {
+    display: none !important;
+  }
+  
+  /* Ẩn navbar links đến section3 và section4 */
+  .navbar ul li a[href="#section3"],
+  .navbar ul li a[href="#section4"] {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #section3,
+  #section4 {
+    display: none !important;
+  }
+  
+  /* Ẩn navbar links đến section3 và section4 */
+  .navbar ul li a[href="#section3"],
+  .navbar ul li a[href="#section4"] {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #section3,
+  #section4 {
+    display: none !important;
+  }
+  
+  /* Ẩn navbar links đến section3 và section4 */
+  .navbar ul li a[href="#section3"],
+  .navbar ul li a[href="#section4"] {
+    display: none !important;
+  }
+}
+
+@media (max-width: 360px) {
+  #section3,
+  #section4 {
+    display: none !important;
+  }
+  
+  /* Ẩn navbar links đến section3 và section4 */
+  .navbar ul li a[href="#section3"],
+  .navbar ul li a[href="#section4"] {
+    display: none !important;
+  }
+}

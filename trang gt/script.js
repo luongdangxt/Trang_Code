@@ -13,12 +13,28 @@ const sections = document.querySelectorAll(".page");
 let currentIndex = 0;
 let isScrolling = false;
 
+// Function để lọc sections hiển thị trên mobile
+function getVisibleSections() {
+  const allSections = document.querySelectorAll(".page");
+  const visibleSections = [];
+  
+  allSections.forEach((section, index) => {
+    const computedStyle = window.getComputedStyle(section);
+    if (computedStyle.display !== 'none') {
+      visibleSections.push({ section, originalIndex: index });
+    }
+  });
+  
+  return visibleSections;
+}
+
 function scrollToSection(index, instant = false) {
-  if (index < 0 || index >= sections.length) return;
+  const visibleSections = getVisibleSections();
+  if (index < 0 || index >= visibleSections.length) return;
 
   isScrolling = true;
   currentIndex = index;
-  sections[index].scrollIntoView({ behavior: instant ? "auto" : "smooth" });
+  visibleSections[index].section.scrollIntoView({ behavior: instant ? "auto" : "smooth" });
 
   setTimeout(() => {
     isScrolling = false;
@@ -29,6 +45,7 @@ function scrollToSection(index, instant = false) {
 window.addEventListener("wheel", (e) => {
   if (isScrolling) return;
 
+  const visibleSections = getVisibleSections();
   if (e.deltaY > 0) scrollToSection(currentIndex + 1);
   else scrollToSection(currentIndex - 1);
 });
@@ -70,9 +87,34 @@ document.querySelectorAll(".navbar a, .cta-button").forEach((link) => {
     e.preventDefault();
     const href = link.getAttribute("href");
     const target = document.querySelector(href);
-    const index = Array.from(sections).indexOf(target);
-    if (index !== -1) {
-      scrollToSection(index, true);
+    
+    if (target) {
+      const visibleSections = getVisibleSections();
+      const targetVisibleIndex = visibleSections.findIndex(item => item.section === target);
+      
+      if (targetVisibleIndex !== -1) {
+        scrollToSection(targetVisibleIndex, true);
+      } else {
+        // Nếu target bị ẩn, tìm section gần nhất
+        const allSections = document.querySelectorAll(".page");
+        const targetOriginalIndex = Array.from(allSections).indexOf(target);
+        
+        if (targetOriginalIndex !== -1) {
+          // Tìm section hiển thị gần nhất
+          let nearestIndex = 0;
+          let minDistance = Infinity;
+          
+          visibleSections.forEach((item, index) => {
+            const distance = Math.abs(item.originalIndex - targetOriginalIndex);
+            if (distance < minDistance) {
+              minDistance = distance;
+              nearestIndex = index;
+            }
+          });
+          
+          scrollToSection(nearestIndex, true);
+        }
+      }
     }
   });
 });
@@ -190,10 +232,33 @@ function handleSection2Responsive() {
   }
 }
 
+// Function để reset currentIndex khi resize
+function handleResize() {
+  const visibleSections = getVisibleSections();
+  if (currentIndex >= visibleSections.length) {
+    currentIndex = Math.max(0, visibleSections.length - 1);
+  }
+  
+  // Reset currentIndex nếu section hiện tại bị ẩn
+  if (visibleSections.length > 0) {
+    const currentSection = visibleSections[currentIndex]?.section;
+    if (currentSection && window.getComputedStyle(currentSection).display === 'none') {
+      currentIndex = 0;
+    }
+  }
+}
+
 // Gọi function khi resize
-window.addEventListener('resize', handleSection2Responsive);
+window.addEventListener('resize', () => {
+  handleSection2Responsive();
+  handleResize();
+});
+
 // Gọi lần đầu khi load
-document.addEventListener('DOMContentLoaded', handleSection2Responsive);
+document.addEventListener('DOMContentLoaded', () => {
+  handleSection2Responsive();
+  handleResize();
+});
 
 // --- Hiệu ứng chuyển ảnh khi click vào ảnh trong .img-lichsu ---
 const lichsuImgs = Array.from(imgLichsu.querySelectorAll('.lichsu-img'));
