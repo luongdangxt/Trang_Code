@@ -33,6 +33,30 @@ window.addEventListener("wheel", (e) => {
   else scrollToSection(currentIndex - 1);
 });
 
+// Thêm touch support cho mobile
+let touchStartY = 0;
+let touchEndY = 0;
+
+window.addEventListener("touchstart", (e) => {
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+window.addEventListener("touchend", (e) => {
+  if (isScrolling) return;
+  
+  touchEndY = e.changedTouches[0].clientY;
+  const touchDiff = touchStartY - touchEndY;
+  
+  // Chỉ scroll nếu swipe đủ dài (ít nhất 50px)
+  if (Math.abs(touchDiff) > 50) {
+    if (touchDiff > 0) {
+      scrollToSection(currentIndex + 1);
+    } else {
+      scrollToSection(currentIndex - 1);
+    }
+  }
+}, { passive: true });
+
 window.addEventListener("keydown", (e) => {
   if (isScrolling) return;
 
@@ -100,16 +124,76 @@ const section2 = document.querySelector('#section2');
 const animators2 = section2.querySelectorAll('.animator');
 // Xóa sẵn class show để hiệu ứng chỉ chạy khi lướt tới
 animators2.forEach(el => el.classList.remove('show'));
+
 const observer2 = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      // Thêm delay khác nhau cho từng element để tạo hiệu ứng cascade
       animators2.forEach((el, i) => {
-        setTimeout(() => el.classList.add('show'), i * 120); // hiệu ứng lần lượt
+        setTimeout(() => {
+          el.classList.add('show');
+          // Thêm hiệu ứng bounce nhẹ
+          el.style.animation = 'bounceIn 0.6s ease-out';
+        }, i * 120);
       });
+      
+      // Khởi động swiper khi section2 hiển thị
+      if (section2Swiper && !section2Swiper.initialized) {
+        section2Swiper.init();
+      }
     }
   });
-}, { threshold: 0.3 });
+}, { 
+  threshold: 0.3,
+  rootMargin: '0px 0px -50px 0px' // Trigger sớm hơn một chút
+});
+
 observer2.observe(section2);
+
+// Thêm CSS animation cho bounce effect
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: translateY(40px) scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-5px) scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+`;
+document.head.appendChild(style);
+
+// Cải thiện responsive cho section2
+function handleSection2Responsive() {
+  const section2 = document.querySelector('#section2');
+  if (!section2) return;
+  
+  const width = window.innerWidth;
+  const animators = section2.querySelectorAll('.animator');
+  
+  // Điều chỉnh animation delay dựa trên screen size
+  if (width <= 768) {
+    animators.forEach((el, i) => {
+      el.style.animationDelay = `${i * 80}ms`; // Nhanh hơn trên mobile
+    });
+  } else {
+    animators.forEach((el, i) => {
+      el.style.animationDelay = `${i * 120}ms`;
+    });
+  }
+}
+
+// Gọi function khi resize
+window.addEventListener('resize', handleSection2Responsive);
+// Gọi lần đầu khi load
+document.addEventListener('DOMContentLoaded', handleSection2Responsive);
 
 // --- Hiệu ứng chuyển ảnh khi click vào ảnh trong .img-lichsu ---
 const lichsuImgs = Array.from(imgLichsu.querySelectorAll('.lichsu-img'));
@@ -143,23 +227,98 @@ const section2Swiper = new Swiper('.section2Swiper', {
   effect: "slide",
   speed: 600,
   autoplay: {
-    delay: 10000, // 2 giây
+    delay: 10000,
     disableOnInteraction: false,
   },
-  slidesPerView: 2, // Hiển thị 2 slide trên màn hình lớn
-  spaceBetween: 32, // Khoảng cách giữa các slide
+  slidesPerView: 1, // Mặc định hiển thị 1 slide
+  spaceBetween: 20,
   breakpoints: {
     0: {
       slidesPerView: 1,
-      spaceBetween: 12,
+      spaceBetween: 10,
+      autoplay: {
+        delay: 8000,
+        disableOnInteraction: false,
+      }
+    },
+    480: {
+      slidesPerView: 1,
+      spaceBetween: 15,
+      autoplay: {
+        delay: 9000,
+        disableOnInteraction: false,
+      }
+    },
+    600: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      autoplay: {
+        delay: 10000,
+        disableOnInteraction: false,
+      }
+    },
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 25,
+      autoplay: {
+        delay: 10000,
+        disableOnInteraction: false,
+      }
     },
     900: {
-      slidesPerView: 2,
-      spaceBetween: 32,
+      slidesPerView: 1,
+      spaceBetween: 30,
+      autoplay: {
+        delay: 10000,
+        disableOnInteraction: false,
+      }
     },
-    1300: {
-      slidesPerView: 3,
+    1200: {
+      slidesPerView: 1,
+      spaceBetween: 35,
+      autoplay: {
+        delay: 10000,
+        disableOnInteraction: false,
+      }
+    },
+    1400: {
+      slidesPerView: 2,
       spaceBetween: 40,
+      autoplay: {
+        delay: 12000,
+        disableOnInteraction: false,
+      }
+    },
+    1600: {
+      slidesPerView: 3,
+      spaceBetween: 45,
+      autoplay: {
+        delay: 15000,
+        disableOnInteraction: false,
+      }
+    }
+  },
+  // Thêm touch support tốt hơn cho mobile
+  touchRatio: 1,
+  touchAngle: 45,
+  grabCursor: true,
+  // Cải thiện performance
+  watchSlidesProgress: true,
+  watchSlidesVisibility: true,
+  // Responsive autoplay
+  on: {
+    init: function() {
+      // Pause autoplay khi user tương tác
+      this.el.addEventListener('touchstart', () => {
+        this.autoplay.stop();
+      });
+      
+      // Resume autoplay sau 5 giây không tương tác
+      this.el.addEventListener('touchend', () => {
+        setTimeout(() => {
+          this.autoplay.start();
+        }, 5000);
+      });
     }
   }
 });
