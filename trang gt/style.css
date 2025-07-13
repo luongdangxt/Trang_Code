@@ -1406,586 +1406,709 @@ h1 {
 }
 
 /* section 4 */
+/* section 4 */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', 'Times New Roman', serif;
-    /* Nền hình ảnh */
-    background: url('images/back.png') no-repeat center center fixed;
-    background-size: cover;
-    min-height: 100vh;
-    overflow-x: hidden;
+  font-family: 'Arial', 'Times New Roman', serif;
+  /* Nền hình ảnh */
+  background: url('images/back.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
-    position: relative;
-    max-width: 1600px;
-    width: 100%;
-    margin: 0 auto;
-    min-height: 100vh;
-    padding: 100px 20px 20px 20px;
+  position: relative;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 100px 20px 20px 20px;
 }
 
 /* Header */
 .header {
-    position: relative;
-    z-index: 10;
-    margin-bottom: 30px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 30px;
 }
 
 .logo-section {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .logo {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .btec-logo {
-    height: 35px;
+  height: 35px;
 }
 
 .pearson-logo {
-    height: 30px;
+  height: 30px;
 }
 
 /* Main Content */
 .main-content {
-    top: 0px;
-    /* Center lại, không dịch sang phải để tránh khoảng trắng */
-    display: grid;
-    grid-template-columns: 3fr 3fr;
-    gap: 32px;
-    align-items: start;
-    position: relative;
-    z-index: 1;
-    min-height: 700px;
-    background-color: #ffffff;
-    padding: 80px 60px;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-    background-image: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.05) 0px,
-        rgba(0, 0, 0, 0.05) 1px,
-        transparent 1px,
-        transparent 32px
-    );
-    perspective: 2000px;
+  top: 0px;
+  /* Center lại, không dịch sang phải để tránh khoảng trắng */
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+  gap: 32px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+  min-height: 700px;
+  background-color: #ffffff;
+  padding: 80px 60px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05) 0px,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 32px
+  );
+  perspective: 2000px;
 }
 
 /* Đường gáy vở ở giữa */
 .main-content::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 3px;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.08);
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 /* Loại bỏ nền giấy riêng ở hai khối con để dùng nền chung */
 .text-section,
 .image-section {
-    background: none;
+  background: none;
 }
 
 /* .text-section {
-    position: relative;
-    padding: 100px 20px;
-    background-color: #ffffff;
-    background-image: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.05) 0px,
-        rgba(0, 0, 0, 0.05) 1px,
-        transparent 1px,
-        transparent 32px
-    );
+  position: relative;
+  padding: 100px 20px;
+  background-color: #ffffff;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05) 0px,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 32px
+  );
 } */
 
 /* .text-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50px;
-    width: 2px;
-    height: 100%;
-    background-color: rgba(255, 0, 0, 0.3);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.3);
 } */
 
 .main-text {
-    width: 90%;
-    margin-left: 50px;
-    font-size: 20px;
-    line-height: 1.7;
-    margin-bottom: 25px;
-    color: #333;
-    text-align: justify;
-    font-weight: 500;
+  width: 90%;
+  margin-left: 50px;
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  color: #333;
+  text-align: justify;
+  font-weight: 500;
 }
 
 .secondary-text {
-    width: 90%;
-    margin-left: 50px;
-    font-size: 20px;
-    line-height: 1.7;
-    margin-bottom: 25px;
-    color: #333;
-    text-align: justify;
-    font-weight: 500;
+  width: 90%;
+  margin-left: 50px;
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  color: #333;
+  text-align: justify;
+  font-weight: 500;
 }
 
 
 .third-text {
-    width: 90%;
-    margin-left: 50px;
-    font-size: 20px;
-    line-height: 1.7;
-    margin-bottom: 25px;
-    color: #333;
-    text-align: justify;
-    font-weight: 500;
+  width: 90%;
+  margin-left: 50px;
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  color: #333;
+  text-align: justify;
+  font-weight: 500;
 }
 
 .ford-text{
-    width: 90%;
-    margin-left: 50px;
-    font-size: 20px;
-    line-height: 1.7;
-    margin-bottom: 25px;
-    color: #333;
-    text-align: justify;
-    font-weight: 500;
+  width: 90%;
+  margin-left: 50px;
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  color: #333;
+  text-align: justify;
+  font-weight: 500;
 }
 /* Image Section */
 /* .image-section {
-    position: relative;
-    padding: 100px 20px;
-    background-color: #ffffff;
-    background-image: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.05) 0px,
-        rgba(0, 0, 0, 0.05) 1px,
-        transparent 1px,
-        transparent 32px
-    );
+  position: relative;
+  padding: 100px 20px;
+  background-color: #ffffff;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05) 0px,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 32px
+  );
 } */
 
 .student-images {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
 }
 
 .main-image {
-    width: 87%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  width: 87%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
 
 .top-image {
-    height: 300px;
-    margin-left: 50px;
+  height: 300px;
+  margin-left: 50px;
 }
 
 .bottom-image {
-    height: 300px;
-    margin-left: 50px;
+  height: 300px;
+  margin-left: 50px;
 }
 
 /* Decorative Elements */
 .decorative-elements {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
 }
 
 .decor,
 .page-tape {
-    position: absolute;
-    opacity: 1;
-    transition: opacity 0.6s ease, transform 0.6s ease; /* mượt hơn khi ẩn/hiện */
+  position: absolute;
+  opacity: 1;
+  /* transition: opacity 0.6s ease, transform 0.6s ease; mượt hơn khi ẩn/hiện */
 }
 
 /* Top decorations */
 .ruler.top-left {
-    top: 70px;
-    left: 0px;
-    width: 180px;
-    height: auto;
-    transform: rotate(0deg);
+  top: 70px;
+  left: 0px;
+  width: 180px;
+  height: auto;
+  transform: rotate(0deg);
 }
 
 .magnifying-glass.top-center {
-    top: 70px;
-    left: 45%;
-    transform: translateX(-50%) rotate(0deg);
-    width: 120px;
-    height: auto;
+  top: 70px;
+  left: 45%;
+  transform: translateX(-50%) rotate(0deg);
+  width: 120px;
+  height: auto;
 }
 
 
 .tape.top-center-left {
-    top: 160px;
-    right: 600px;
-    transform: translateX(-50%) rotate(0deg);
-    width: 130px;
-    height: auto;
+  top: 160px;
+  right: 600px;
+  transform: translateX(-50%) rotate(0deg);
+  width: 130px;
+  height: auto;
 }
 
 .tape_1.top-right-corner-left {
-    top: 780px;
-    right: 580px;
-    transform: translateX(-50%) rotate(0deg);
-    width: 130px;
-    height: auto;
+  top: 780px;
+  right: 580px;
+  transform: translateX(-50%) rotate(0deg);
+  width: 130px;
+  height: auto;
 }
 
 .tape_2.top-right-corner-right {
-    top: 460px;
-    right: 0px;
-    transform: translateX(-50%) rotate(0deg);
-    width: 130px;
-    height: auto;
+  top: 460px;
+  right: 0px;
+  transform: translateX(-50%) rotate(0deg);
+  width: 130px;
+  height: auto;
 }
 
 .earth.top-right {  
-    top: 50px;
-    right: 100px;
-    width: 120px;
-    height: auto;
-    transform: rotate(0deg);
+  top: 50px;
+  right: 100px;
+  width: 120px;
+  height: auto;
+  transform: rotate(0deg);
 }
 
 .Delonix_regia.top-right-corner {
-    top: 60px;
-    right: -150px;
-    width: 300px;
-    height: auto;
-    transform: rotate(0deg);
+  top: 60px;
+  right: -150px;
+  width: 300px;
+  height: auto;
+  transform: rotate(0deg);
 }
 
 
 
 .de.top-right-corner {
-    top: 60px;
-    right: 20px;
-    width: 120px;
-    height: auto;
-    transform: rotate(-15deg);
+  top: 60px;
+  right: 20px;
+  width: 120px;
+  height: auto;
+  transform: rotate(-15deg);
 }
 
 /* Left side decorations */
 .student-male.left-side {
-    left: -150px;
-    top: 78%;
-    transform: translateY(-50%);
-    width: 280px;
-    height: auto;
+  left: -150px;
+  top: 78%;
+  transform: translateY(-50%);
+  width: 280px;
+  height: auto;
 }
 
 .pen.left-center {
-    left: 40px;
-    top: 65%;
-    width: 80px;
-    height: auto;
-    transform: rotate(35deg);
+  left: 40px;
+  top: 65%;
+  width: 80px;
+  height: auto;
+  transform: rotate(35deg);
 }
 
 .compass.left-center {
-    left: -150px;
-    top: 31%;
-    width: 370px;
-    height: auto;
-    transform: rotate(0deg);
+  left: -150px;
+  top: 31%;
+  width: 370px;
+  height: auto;
+  transform: rotate(0deg);
 }
 
 
 /* Bottom decorations */
 .paint-set.bottom-left {
-    bottom: 20px;
-    left: 150px;
-    width: 180px;
-    height: auto;
-    transform: rotate(-8deg);
+  bottom: 20px;
+  left: 150px;
+  width: 180px;
+  height: auto;
+  transform: rotate(-8deg);
 }
 
 .flamboyant-small.bottom-center {
-    bottom: 150px;
-    left: 26%;
-    transform: translateX(-50%) rotate(25deg);
-    width: 150px;
-    height: auto;
+  bottom: 150px;
+  left: 26%;
+  transform: translateX(-50%) rotate(25deg);
+  width: 150px;
+  height: auto;
 }
 
 .pen-bottom.bottom-center-right {
-    bottom: 70px;
-    right: 50%;
-    width: 150px;
-    height: auto;
-    transform: rotate(0deg);
+  bottom: 70px;
+  right: 50%;
+  width: 150px;
+  height: auto;
+  transform: rotate(0deg);
 }
 
 /* Right side decorations */
 .student-female.right-side {
-    right: -150px;
-    top: 78%;
-    transform: translateY(-50%);
-    width: 220px;
-    height: auto;
+  right: -150px;
+  top: 78%;
+  transform: translateY(-50%);
+  width: 220px;
+  height: auto;
 }
 
 .bag.right-bottom {
-    right: 40px;
-    bottom: 30px;
-    width: 150px;
-    height: auto;
-    transform: rotate(12deg);
+  right: 40px;
+  bottom: 30px;
+  width: 150px;
+  height: auto;
+  transform: rotate(12deg);
 }
 
 /* Responsive Design */
+/* ======= Màn hình Tablet (chiều rộng tối đa 1024px) ======= */
+/* ======= Màn hình Tablet (chiều rộng tối đa 1024px) - ĐÃ CẬP NHẬT ======= */
 @media (max-width: 1024px) {
-    .main-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .text-section {
-        order: 2;
-    }
-    
-    .image-section {
-        order: 1;
-    }
-    
-    .student-images {
-        flex-direction: row;
-        gap: 15px;
-    }
-    
-    .main-image {
-        height: 250px;
-    }
-    
-    /* Adjust decorative elements for mobile */
-    .decor {
-        transform: scale(0.7);
-    }
-    
-    .student-male.left-side,
-    .student-female.right-side {
-        display: none;
-    }
-    
-    .main-content::before {
-        display: none;
-    }
+  .main-content {
+      grid-template-columns: 1fr; /* Chuyển thành 1 cột duy nhất */
+      padding: 60px 20px 40px 20px; /* Tăng padding trên để tạo không gian cho gáy vở */
+      position: relative; /* Đảm bảo ::before được định vị đúng */
+  }
+  
+  /* Điều chỉnh lại gáy vở thành dạng gáy ngang ở trên */
+  .main-content::before {
+      display: block; /* Hiện lại gáy vở */
+      content: "";
+      position: absolute;
+      top: 25px; /* Đặt vị trí cho gáy vở ngang */
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: rgba(0, 0, 0, 0.08);
+      transform: none; /* Bỏ transform cũ */
+  }
+
+  
+
+  .text-section {
+      order: 2; /* Đưa phần chữ xuống dưới */
+  }
+  
+  .page-stack {
+      order: 1; /* Đưa phần hình ảnh lên trên */
+  }
+  
+  /* --- YÊU CẦU 1: Chuyển ảnh về 2 hàng --- */
+  .student-images {
+      flex-direction: column; /* Chuyển lại thành cột để ảnh xếp thành 2 hàng */
+      gap: 20px; /* Tăng khoảng cách cho hợp lý */
+  }
+  
+  .main-image {
+      height: 250px;
+      width: 100%; /* Đảm bảo ảnh chiếm hết chiều rộng của cột */
+  }
+  
+  /* Ẩn bớt các chi tiết trang trí không cần thiết */
+  .student-male.left-side,
+  .student-female.right-side,
+  .pen.left-center,
+  .bag.right-bottom,
+  .paint-set.bottom-left,
+  .pen-bottom.bottom-center-right,
+  .tape.top-center-left,
+  .tape_1.top-right-corner-left,
+  .tape_2.top-right-corner-right,
+  .compass.left-center {
+      display: none;
+  }
+
+/* Ẩn phần tử .main-text rỗng */
+.main-text:empty {
+  display: none;
 }
 
+/* Hoặc ẩn tất cả .main-text khi trang lật, chỉ hiện ::after */
+
+.container.page-flipped .secondary-text {
+  visibility: hidden;
+  position: relative;
+}
+
+.container.page-flipped .third-text {
+  visibility: hidden;
+  position: relative;
+}
+.container.page-flipped .ford-text {
+  visibility: hidden;
+  position: relative;
+}
+
+
+
+
+.container.page-flipped .main-text {
+  visibility: hidden;
+  position: relative;
+}
+.container.page-flipped .main-text::after {
+  content: "Hành trình tri thức vẫn không dừng lại ở đó. Khi trang sách mới mở ra, những khát vọng của tuổi trẻ tiếp tục được chắp cánh bay cao. Mỗi bài học là một bước tiến, mỗi thử thách là cơ hội để bứt phá giới hạn của chính mình.";
+  visibility: visible;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+
+  .earth.top-right{
+      width: 20%;
+  }
+  .magnifying-glass.top-center{
+      width: 15%;
+  }
+  .ruler.top-left{
+      width: 20%;
+  }
+
+  .flamboyant-small.bottom-center{
+      top: 50%;
+      left: 40%;
+  }
+  
+  .decor {
+      transform: scale(0.4);
+  }
+
+  /* --- YÊU CẦU 2: Hiệu ứng lật trang dọc --- */
+  .page-right {
+      /* Đổi gốc xoay lên cạnh trên để lật dọc */
+      transform-origin: center top; 
+  }
+
+  .page-right.flipped {
+      /* Thay đổi hướng lật từ ngang (rotateY) sang dọc (rotateX) */
+      transform: rotateX(180deg);
+  }
+  
+  .page-face.back {
+      /* Điều chỉnh lại mặt sau cho khớp với lật dọc */
+      transform: rotateX(-180deg);
+  }
+}
+
+/* ======= Màn hình điện thoại (chiều rộng tối đa 768px) ======= */
 @media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-    
-    .main-text,
-    .secondary-text {
-        font-size: 14px;
-    }
-    
-    .logo {
-        height: 40px;
-    }
-    
-    .btec-logo {
-        height: 35px;
-    }
-    
-    .pearson-logo {
-        height: 32px;
-    }
-    
-    .student-images {
-        flex-direction: column;
-    }
-    
-    .main-image {
-        height: 180px;
-    }
-    
-    .decor {
-        transform: scale(0.5);
-    }
+  .container {
+      padding: 20px 15px; /* Giảm padding của container */
+  }
+  
+  .main-text,
+  .secondary-text,
+  .third-text,
+  .ford-text,
+  .new-text {
+      font-size: 16px; /* Tăng kích thước font chữ cho dễ đọc hơn */
+      line-height: 1.6;
+      width: 100%; /* Sử dụng toàn bộ chiều rộng */
+      margin-left: 0;
+  }
+
+  .logo-section {
+      flex-direction: column; /* Xếp chồng logo lên nhau */
+      align-items: flex-start;
+      gap: 10px;
+  }
+
+  .logo { height: 35px; }
+  .btec-logo { height: 30px; }
+  .pearson-logo { height: 28px; }
+  
+  .student-images {
+      flex-direction: column; /* Hiển thị ảnh theo cột */
+  }
+  
+  .main-image {
+      height: 200px;
+  }
+  
+  .new-content {
+      flex-direction: column; /* Nội dung trang lật cũng theo cột */
+      padding: 20px;
+  }
+
+  .new-image {
+      max-width: 100%; /* Ảnh trong trang lật chiếm toàn bộ chiều rộng */
+  }
+  
+  /* Thu nhỏ và điều chỉnh lại vị trí các vật trang trí */
+  .decor {
+      transform: scale(0.4);
+  }
+
+  .ruler.top-left { top: 20px; left: -10px; }
+  .earth.top-right { top: 20px; right: -5px; }
+  .Delonix_regia.top-right-corner { display: none; } /* Ẩn cành phượng lớn */
+  .paint-set.bottom-left { left: 10px; bottom: 10px; }
+  .bag.right-bottom { right: 10px; bottom: 10px; }
 }
 
+/* ======= Màn hình điện thoại nhỏ (chiều rộng tối đa 480px) ======= */
 @media (max-width: 480px) {
-    .main-text,
-    .secondary-text {
-        font-size: 13px;
-        line-height: 1.5;
-    }
-    
-    .main-image {
-        height: 150px;
-    }
-    
-    .decorative-elements {
-        display: none;
-    }
+  .main-text,
+  .secondary-text,
+  .third-text,
+  .ford-text,
+  .new-text {
+      font-size: 14px; /* Giảm nhẹ font chữ cho màn hình rất nhỏ */
+      line-height: 1.5;
+  }
+  
+  .main-image {
+      height: 180px;
+  }
+  
+  /* Ẩn tất cả các yếu tố trang trí để tập trung vào nội dung */
+  .decorative-elements {
+      display: none;
+  }
+
+  .main-content {
+      padding: 20px 15px;
+  }
 }
 
 /* Page flip effect */
 .page-right {
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 1s ease;
-    transform-origin: left center;
-    width: 100%;
-    height: 100%;
-    min-height: 650px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  transform-origin: left center;
+  width: 100%;
+  height: 50%;
+  min-height: 650px;
 }
 
 .page-right.flipped {
-    transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
 }
 
 .page-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
 }
 
 .page-face.back {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .new-content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 95%;
-    height: 100%;
-    padding: 40px;
-    /* Nền giấy có dòng kẻ giống quyển vở */
-    background-color: #ffffff;
-    background-image: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.05) 0px,
-        rgba(0, 0, 0, 0.05) 1px,
-        transparent 1px,
-        transparent 32px
-    );
-    /* căn chỉnh vị trí để khớp với quyển vở; điều chỉnh nếu cần */
-    background-position-y: -8px; /* tinh chỉnh nếu thấy lệch dòng */
-    gap: 32px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 95%;
+  height: 100%;
+  padding: 40px;
+  /* Nền giấy có dòng kẻ giống quyển vở */
+  background-color: #ffffff;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05) 0px,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 32px
+  );
+  /* căn chỉnh vị trí để khớp với quyển vở; điều chỉnh nếu cần */
+  background-position-y: -8px; /* tinh chỉnh nếu thấy lệch dòng */
+  gap: 32px;
 }
 
 .new-text {
-    flex: 1 1 55%;
-    font-size: 20px;
-    line-height: 1.7;
-    color: #333;
-    text-align: justify;
-    font-weight: 500;
+  flex: 1 1 55%;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #333;
+  text-align: justify;
+  font-weight: 500;
 }
 
 .new-image {
-    flex: 0 0 40%;
-    max-width: 40%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  flex: 0 0 40%;
+  max-width: 40%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
 
 .page-right .student-images {
-    width: 100%;
-    height: 100%;
-    gap: 25px;
+  width: 100%;
+  height: 100%;
+  gap: 25px;
 }
 
 .page-right .main-image {
-    width: 100%;
-    margin-left: 0;
+  width: 100%;
+  margin-left: 0;
 }
 
 /* Tape gắn trên trang lật */
 .page-tape {
-    position: absolute;
-    width: 120px;
-    height: auto;
-    pointer-events: none;
+  position: absolute;
+  width: 120px;
+  height: auto;
+  pointer-events: none;
 }
 .front-tape {
-    top: 60px;
-    right: 60px;
-    transform: rotate(8deg);
+  top: 60px;
+  right: 60px;
+  transform: rotate(8deg);
 }
 .back-tape {
-    top: 60px;
-    right: 60px;
-    transform: rotate(-6deg);
+  top: 60px;
+  right: 60px;
+  transform: rotate(-6deg);
 }
 
 /* Ẩn các decor cũ khi trang đã lật */
-.container.page-flipped .decor.flamboyant-small,
 .container.page-flipped .decor.tape,
 .container.page-flipped .decor.tape_1,
 .container.page-flipped .decor.tape_2 {
-    opacity: 0;
-    transform: translateY(20px) scale(0.85); /* trượt nhẹ & thu nhỏ dần */
+  opacity: 0;
+  transform: translateY(20px) scale(0.85); /* trượt nhẹ & thu nhỏ dần */
 }
 
 .front-extra-image {
-    position: absolute;
-    bottom: 40px;
-    right: 60px;
-    width: 220px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.6s ease, opacity 0.6s ease;
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 220px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
 /* Khi trang lật, ẩn ảnh mặt trước */
 .page-right.flipped .front-extra-image {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.9);
+  opacity: 0;
+  transform: translateY(-20px) scale(0.9);
 }
 
 /* Page flip effect */
 /* ----- Page Stack ----- */
 .page-stack {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 650px; /* đồng bộ chiều cao với trang */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 650px; /* đồng bộ chiều cao với trang */
 }
 
 .page-stack .page-right {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .page-stack .page-right.flipped {
-    z-index: 0;
+  z-index: 0;
 }
 
 .page-stack .page-right.first-page { z-index: 2; }
@@ -1993,15 +2116,45 @@ body {
 
 /* ----- Paper background cho trang đầu tiên (mặt trước) ----- */
 .page-right.first-page .page-face.front {
-    /* Giấy trắng với dòng kẻ nhẹ */
-    background-color: #ffffff;
-    background-image: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.05) 0px,
-        rgba(0, 0, 0, 0.05) 1px,
-        transparent 1px,
-        transparent 32px
-    );
-    background-position-y: -8px; /* căn chỉnh dòng */
-    padding: 40px; /* khoảng cách viền trang */
+  /* Giấy trắng với dòng kẻ nhẹ */
+  background-color: #ffffff;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05) 0px,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 32px
+  );
+  background-position-y: -8px; /* căn chỉnh dòng */
+  padding: 40px; /* khoảng cách viền trang */
 } 
+
+
+
+@keyframes floatAnimation {
+  0% {
+      transform: translateY(0px);
+  }
+  50% {
+      transform: translateY(-10px); /* Điều chỉnh độ cao bay lơ lửng tại đây */
+  }
+  100% {
+      transform: translateY(0px);
+  }
+}
+
+
+
+/* Áp dụng animation cho tất cả các decor trừ học sinh */
+.decor:not(.student-male):not(.student-female) {
+  animation: floatAnimation 6s ease-in-out infinite;
+}
+
+/* Gán thời gian delay ngẫu nhiên để các vật không bay cùng lúc */
+.decor.ruler { animation-delay: -1s; }
+.decor.magnifying-glass { animation-delay: -2s; }
+.decor.earth { animation-delay: -3s; }
+.decor.paint-set { animation-delay: -4s; }
+.decor.flamboyant-small { animation-delay: -5s; }
+.decor.bag { animation-delay: -0.5s; }
+.decor.pen-bottom { animation-delay: -2.5s; }
